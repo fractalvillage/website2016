@@ -17,6 +17,8 @@ class Village(models.Model):
     village_facebook_link = models.CharField(max_length=URL_LENGTH, null=True, blank=True)
     village_slack_link = models.CharField(max_length=URL_LENGTH, null=True, blank=True)
     village_email = models.CharField(max_length=EMAIL_LENGTH, null=True, blank=True)
+    def __str__(self):
+        return self.village_name_he
 
 class VillageDocs(models.Model):
     doc_title = models.CharField(max_length=NAME_LENGTH, unique=True)
@@ -24,6 +26,11 @@ class VillageDocs(models.Model):
     village = models.ForeignKey(Village, on_delete=models.PROTECT)
     doc_link = models.CharField(max_length=URL_LENGTH)
     doc_description = models.TextField(max_length=LONG_DESCRIPTION_LENGTH)
+    def __str__(self):
+        return self.doc_title
+    class Meta:
+        ordering = ["doc_serial_number"]
+
 
 class Camp(models.Model):
     camp_name_he = models.CharField(max_length=NAME_LENGTH, unique=True)
@@ -39,6 +46,8 @@ class Camp(models.Model):
     camp_contact = models.ForeignKey('Staff', on_delete=models.PROTECT, null=True, blank=True)
     camp_facebook_link = models.CharField(max_length=URL_LENGTH, null=True, blank=True)
     camp_email = models.CharField(max_length=EMAIL_LENGTH, null=True, blank=True)
+    def __str__(self):
+        return self.camp_name_he
 
 class Staff(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
