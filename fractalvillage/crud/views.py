@@ -1,3 +1,4 @@
+from django.views.generic.base import TemplateView
 from rest_framework import viewsets
 #from django.shortcuts import render
 from fractalvillage.crud.models import *
@@ -16,3 +17,9 @@ class VillageDocsViewSet(viewsets.ReadOnlyModelViewSet):
 class CampViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Camp.objects.all()
     serializer_class = CampSerializer
+
+# Non-REST Views
+
+class VillageView(TemplateView):
+    http_method_names = ['get', 'head']
+    template_name = "index.html"

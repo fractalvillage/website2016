@@ -27,6 +27,7 @@ router.register(r'docs', views.VillageDocsViewSet)
 router.register(r'camps', views.CampViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^$', views.VillageView.as_view()),
+    url(r'^v1/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
