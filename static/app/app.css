@@ -28,3 +28,14 @@
   content: "";
   padding: 0;
 }
+
+.villagestable {
+  border: 1px solid green;
+  border-collapse: collapse;
+}
+
+.villagestable td {
+  border: 1px solid red;
+  border-collapse: collapse;
+  padding: 15px;
+}

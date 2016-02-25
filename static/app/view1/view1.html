@@ -1,1 +1,10 @@
-<p>This is the partial for view 1.</p>
+<div>
+  <div ng-repeat="village in villages">
+    <table class="villagestable">
+      <tr><td>Village name:</td><td>{{ village.village_name_en }}</td><td>{{ village.village_name_he }}</td></tr>
+      <tr><td>Facebook:</td><td colspan="2"><a href="{{ village.village_facebook_link }}">{{ village.village_facebook_link }}</a></td></tr>
+      <tr><td>Slack:</td><td colspan="2"><a href="{{ village.village_slack_link }}">{{ village.village_slack_link }}</a></td></tr>
+      <tr><td>E-mail:</td><td colspan="2"><a href="mailto:{{ village.village_email }}">{{ village.village_email }}</a></td></tr>
+  </table>
+  </div>
+</div>
