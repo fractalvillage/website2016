@@ -2,5 +2,6 @@
 __pycache__
 .venv
 *.sh.obsolete
+fractalvillage/staticfiles/
 fractalvillage/crud/migrations
 media
