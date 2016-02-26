@@ -43,7 +43,7 @@ class Camp(models.Model):
     camp_description_short_he = models.CharField(max_length=SHORT_DESCRIPTION_LENGTH, null=True, blank=True)
     camp_description_short_en = models.CharField(max_length=SHORT_DESCRIPTION_LENGTH, null=True, blank=True)
     camp_schedule_link = models.CharField(max_length=URL_LENGTH, null=True, blank=True)
-    camp_contact = models.ForeignKey('Staff', on_delete=models.PROTECT, null=True, blank=True)
+    camp_contact = models.ForeignKey('Staff', on_delete=models.SET_NULL, null=True, blank=True)
     camp_facebook_link = models.CharField(max_length=URL_LENGTH, null=True, blank=True)
     camp_email = models.CharField(max_length=EMAIL_LENGTH, null=True, blank=True)
     def __str__(self):
@@ -51,7 +51,7 @@ class Camp(models.Model):
 
 class Staff(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    user_camp = models.ForeignKey('Camp', on_delete=models.PROTECT, null=True, blank=True)
+    user_camp = models.ForeignKey('Camp', on_delete=models.SET_NULL, null=True, blank=True)
     user_role = models.CharField(max_length=NAME_LENGTH, null=True, blank=True)
     user_facebook_link = models.CharField(max_length=URL_LENGTH, null=True, blank=True)
     user_email = models.CharField(max_length=EMAIL_LENGTH, null=True, blank=True)
